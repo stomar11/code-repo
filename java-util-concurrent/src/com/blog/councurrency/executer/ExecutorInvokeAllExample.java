@@ -25,7 +25,6 @@ public class ExecutorInvokeAllExample {
 		for (Future<String> future : futures) {
 			System.out.println("future.get = " + future.get());
 		}
-
 		executorService.shutdown();
 	}
 }

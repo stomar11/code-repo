@@ -23,9 +23,7 @@ public class DelayQueueExample {
 				System.out.println(">>" + blockingQueue.take());
 			} catch (InterruptedException ie) {
 			}
-
 		}
-
 	}
 }
 
@@ -45,11 +43,11 @@ class DelayedElement implements Delayed {
 		return (int) (this.duration - ((DelayedElement) o).getDuration());
 	}
 
-	@Override
 	/*
 	 * Expiration occurs when an element's getDelay(TimeUnit unit) method
 	 * returns a value less than or equal to zero.
 	 */
+	@Override
 	public long getDelay(TimeUnit unit) {
 		long diff = duration - System.currentTimeMillis();
 		return unit.convert(diff, TimeUnit.MILLISECONDS);
@@ -75,5 +73,4 @@ class DelayedElement implements Delayed {
 	public String toString() {
 		return "DelayedElement [duration=" + duration + ", message=" + message + "]";
 	}
-
 }
